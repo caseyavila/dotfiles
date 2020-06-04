@@ -72,7 +72,7 @@ fi
 #     ;;
 # esac
 
-PS1='\[\033[01;32m\]\u@\h\[\033[01;0m\]: \[\033[01;31m\][\w] \[\033[01;34m\]\$ \[\033[01;0m\]'
+PS1='\[\033[38;5;65m\]\u@\h\[\033[0m\]: \[\033[38;5;172m\][\w] \[\033[38;5;140m\]\$ \[\033[01;0m\]'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -121,3 +121,4 @@ fi
 export SOURCE=/mnt/c/source
 export DOWNLOADS=/mnt/c/Users/CaseyA/Downloads
 
+export TOKEN='NjIxNTk4NzYyNjU3MTIwMjU2.XXnuRg.8A1Tp3F64iie9TdBb85BRRZKCSQ'

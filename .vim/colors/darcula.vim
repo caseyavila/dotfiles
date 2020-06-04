@@ -31,14 +31,14 @@ let s:DARK_WHITE     = [247, "#9e9e9e"]
 " Colors
 let s:BLUE           = [67,  "#5f87af"]
 let s:BRIGHT_PURPLE  = [57,  "#5f00ff"]
-let s:CYAN           = [44,  "#00d7d7"]
+let s:CYAN           = [45,  "#00d7d7"]
 let s:DARK_ORANGE    = [130, "#af5f00"]
 let s:DARK_SEA_GREEN = [65,  "#5f875f"]
 let s:GREEN          = [34,  "#00af00"]
 let s:LIGHT_CYAN     = [73,  "#5fafaf"]
 let s:MAGENTA        = [198, "#ff0087"]
 let s:ORANGE         = [172, "#d78700"]
-let s:PURPLE         = [133, "#af5fd7"]
+let s:PURPLE         = [140, "#af5fd7"]
 let s:RED            = [160, "#d70000"]
 let s:RED_ORANGE     = [131, "#af5f5f"]
 let s:YELLOW         = [226, "#808000"]
@@ -117,7 +117,6 @@ call s:highlight("Comment",       s:LIGHT_GREY,      s:NONE,          "NONE")
 call s:highlight("Constant",      s:CYAN,            s:NONE,          "NONE")
 call s:highlight("Delimiter",     s:WHITE,           s:NONE,          "NONE")
 call s:highlight("Directory",     s:BLUE,            s:NONE,          "NONE")
-call s:highlight("Identifier",    s:PURPLE,          s:NONE,          "NONE")
 call s:highlight("Operator",      s:WHITE,           s:NONE,          "NONE")
 call s:highlight("PreCondit",     s:YELLOW_ORANGE,   s:NONE,          "NONE")
 call s:highlight("PreProc",       s:ORANGE,          s:NONE,          "NONE")
@@ -126,6 +125,8 @@ call s:highlight("Statement",     s:ORANGE,          s:NONE,          "NONE")
 call s:highlight("String",        s:DARK_SEA_GREEN,  s:NONE,          "NONE")
 call s:highlight("Structure",     s:BLUE,            s:NONE,          "NONE")
 call s:highlight("Type",          s:DARK_ORANGE,     s:NONE,          "NONE")
+call s:highlight("Identifier",    s:PURPLE,          s:NONE,          "NONE")
+
 
 " Special Highlighting
 " -----------------------------------------------------------------------------
