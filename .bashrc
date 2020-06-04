@@ -121,4 +121,3 @@ fi
 export SOURCE=/mnt/c/source
 export DOWNLOADS=/mnt/c/Users/CaseyA/Downloads
 
-export TOKEN='NjIxNTk4NzYyNjU3MTIwMjU2.XXnuRg.8A1Tp3F64iie9TdBb85BRRZKCSQ'
