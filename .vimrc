@@ -20,5 +20,7 @@ set laststatus=2
 set cursorline
 set colorcolumn=80
 
+highlight Comment cterm=italic gui=italic
+
 " copy (write) highlighted text to .vimbuffer
 vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe <CR><CR>
