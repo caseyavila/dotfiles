@@ -21,7 +21,5 @@ set cursorline
 set colorcolumn=80
 set timeoutlen=1000 ttimeoutlen=0
 
-highlight Comment cterm=italic gui=italic
-
 " copy (write) highlighted text to .vimbuffer
 vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe <CR><CR>
