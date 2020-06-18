@@ -116,5 +116,3 @@ fi
 
 export SOURCE=/mnt/c/source
 export DOWNLOADS=/mnt/c/Users/CaseyA/Downloads
-
-neofetch
