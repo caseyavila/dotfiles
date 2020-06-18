@@ -81,7 +81,7 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    #alias grep='grep --color=auto'
+    alias grep='grep --color=auto'
     #alias fgrep='fgrep --color=auto'
     #alias egrep='egrep --color=auto'
 fi
@@ -91,7 +91,7 @@ fi
 
 # some more ls aliases
 #alias ll='ls -l'
-#alias la='ls -A'
+alias la='ls -A'
 #alias l='ls -CF'
 
 # Alias definitions.
@@ -114,5 +114,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export SOURCE=/mnt/c/source
 export DOWNLOADS=/mnt/c/Users/CaseyA/Downloads
