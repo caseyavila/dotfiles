@@ -114,4 +114,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# For use on WSL linux on Windows 10. (It is recommended that you 
+# change the username to match the user of your computer.
 export DOWNLOADS=/mnt/c/Users/CaseyA/Downloads
