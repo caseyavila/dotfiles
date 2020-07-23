@@ -21,7 +21,7 @@ import qualified Data.Map        as M
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "xfce4-terminal"
+myTerminal      = "gnome-terminal"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -248,7 +248,7 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook = do 
     spawnOnce "nitrogen --restore &"
-    spawnOnce "compton &"
+    spawnOnce "picom --config ~/.picom.conf"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
