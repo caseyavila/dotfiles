@@ -22,6 +22,7 @@ import qualified Data.Map        as M
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
+-- Other terminals can be used, such as alacritty and xcfe4-terminal
 myTerminal      = "gnome-terminal"
 
 -- Whether focus follows the mouse pointer.
