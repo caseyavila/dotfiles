@@ -186,13 +186,10 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
--- Set full-screen to a layout with gaps of 10px
-myLayout = tiled ||| Mirror tiled ||| full
+myLayout = tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
-
-     full    =  Full
 
      -- The default number of windows in the master pane
      nmaster = 1
