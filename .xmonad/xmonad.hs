@@ -192,7 +192,7 @@ myLayout = tiled ||| Mirror tiled ||| full
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
 
-     full    = gaps [(U,10), (R,10), (L,10), (D,10)] $ Full
+     full    =  Full
 
      -- The default number of windows in the master pane
      nmaster = 1
@@ -286,7 +286,7 @@ defaults = def {
         mouseBindings      = myMouseBindings,
 
       -- hooks, layouts
-        layoutHook         = avoidStruts $ spacingRaw True (Border 5 5 5 5) True (Border 5 5 5 5) True $ myLayout,
+        layoutHook         = avoidStruts $ spacingRaw False (Border 5 5 5 5) True (Border 5 5 5 5) True $ myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
