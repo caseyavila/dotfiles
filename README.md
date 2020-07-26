@@ -10,6 +10,7 @@ The files to accompany my linux setup.
 - xmobar
 - dmenu
 - picom
+- nitrogen
 
 ## Notes
 - The terminal emulator's padding should be set to 10 pixels, with the Inconsolata font at size 13
