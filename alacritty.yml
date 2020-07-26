@@ -34,8 +34,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 7
-    y: 7
+    x: 10
+    y: 10
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
@@ -97,7 +97,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Consolas
+    family: Inconsolata
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -278,7 +278,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.9
+background_opacity: 1.0
 
 selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -314,10 +314,10 @@ cursor:
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-shell:
-  program: C:\Windows\System32\wsl.exe
-  args:
-    - '~'
+#shell:
+  #program: C:\Windows\System32\wsl.exe
+  #args:
+  #  - '~'
 #    - --login
 
 # Startup directory
