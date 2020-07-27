@@ -74,6 +74,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
 
+    -- launch dmenu-edit-configs
+    , ((modm,               xK_d     ), spawn "~/.dmenu/dmenu-edit-configs.sh")
+
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
 
