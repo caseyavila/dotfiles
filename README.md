@@ -15,7 +15,15 @@ The files to accompany my linux setup.
 ## Notes
 - The terminal emulator's padding should be set to 10 pixels
 
-## Other setup info (Personal Notes)
+## Other Setup Info (mainly personal notes)
+
+### X Server Configuration
+Append the followoing to `~/.xinitrc`:
+```
+xset r rate 250 30 &
+
+exec xmonad
+```
 
 ### Keyboard Layout
 Setup `/etc/X11/xorg.conf.d/10-keyboard.conf` as such:
