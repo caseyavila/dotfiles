@@ -18,14 +18,13 @@ The files to accompany my linux setup.
 ## Other setup info (Personal Notes)
 
 ### Keyboard Layout
-Setup `/etc/X11/xorg.conf.d/00-keyboard.conf` as such:
+Setup `/etc/X11/xorg.conf.d/10-keyboard.conf` as such:
 ```
 Section "InputClass"
         Identifier  "system-keyboard"
-        Option "XkbModel" "pc104"   # Fill in your keyboard model
+        Option "XkbModel" "pc105"
         Option "XkbLayout" "us"
-        Option "XkbVariant" "intl"
-        Option "XkbOptions" "nodeadkeys"
+        Option "XkbVariant" "altgr-intl"
 EndSection
 ```
 
