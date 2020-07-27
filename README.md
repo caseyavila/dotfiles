@@ -29,10 +29,10 @@ Section "InputClass"
 EndSection
 ```
 
-## Wireless Network
+### Wireless Network
 Run the following commands after using `wpa_passphrase`:
-```Shell
-# wpa_supplicant -B -i wlp3s0 -c /etc/wpa_supplicant/wpa_supplicant.conf
-# sudo dhcpcd wlp3s0
+```shell
+$ wpa_supplicant -B -i wlp3s0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+$ sudo dhcpcd wlp3s0
 ```
 
