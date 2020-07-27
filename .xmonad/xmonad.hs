@@ -24,6 +24,8 @@ import qualified Data.Map        as M
 -- certain contrib modules.
 --
 -- Other terminals can be used, such as alacritty and xcfe4-terminal
+-- When changing the default terminal, make sure to also change it in 
+-- .picom.conf and .dmenu/dmenu-edit-configs.sh
 myTerminal      = "st"
 
 -- Whether focus follows the mouse pointer.
