@@ -25,6 +25,13 @@ xset r rate 250 30 &
 exec xmonad
 ```
 
+To start an X server upon login, add this to `~/.zprofile` or `~/.bash_profile`:
+```
+if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+    exec startx
+fi
+```
+
 ### Keyboard Layout
 Setup `/etc/X11/xorg.conf.d/10-keyboard.conf` as such:
 ```
