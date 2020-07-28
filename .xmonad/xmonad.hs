@@ -261,7 +261,7 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook = do 
     spawnOnce "nitrogen --restore &"
-    spawnOnce "picom --config ~/.picom.conf"
+    spawnOnce "picom"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
@@ -269,7 +269,7 @@ myStartupHook = do
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do 
-    xmproc <- spawnPipe "xmobar -x 0 ~/.xmobarrc"
+    xmproc <- spawnPipe "xmobar -x 0"
     xmonad $ docks defaults
 
 -- A structure containing your configuration settings, overriding

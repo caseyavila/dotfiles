@@ -21,7 +21,7 @@ case "$choice" in
 		choice="$HOME/.zshrc"
 	;;
 	picom)
-		choice="$HOME/.picom.conf"
+		choice="$HOME/.config/picom.conf"
 	;;
 	st)
 		choice="$HOME/Proyectos/st/config.h"
