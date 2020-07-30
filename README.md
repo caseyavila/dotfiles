@@ -5,7 +5,7 @@ The files to accompany my linux setup.
 - bash
 - vim
 - tmux
-- alacritty (Any terminal emulator should work fine)
+- alacritty (any terminal emulator is fine)
 - xmonad
 - xmobar
 - dmenu
@@ -13,7 +13,8 @@ The files to accompany my linux setup.
 - nitrogen
 
 ## Notes
-- The terminal emulator's padding should be set to 10 pixels
+- 10 pixels of padding for the terminal is nice
+- Bitmap fonts like Neep and Terminus are also very nice
 
 ## Other Setup Info (mainly personal notes)
 
