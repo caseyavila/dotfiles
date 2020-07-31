@@ -1,6 +1,7 @@
 #!/bin/bash
 
-declare options=("bash
+declare options=("alacritty
+bash
 zsh
 picom
 st
@@ -14,6 +15,9 @@ dmenu-edit-configs
 choice=$(echo -e "${options[@]}" | dmenu -i -p 'Edit config file: ')
 
 case "$choice" in
+	alacritty)
+		choice="$HOME/.config/alacritty/alacritty.yml"
+	;;
 	bash)
 		choice="$HOME/.bashrc"
 	;;
@@ -46,4 +50,4 @@ case "$choice" in
 	;;
 esac
 
-st -e vim "$choice"
+alacritty -e vim "$choice"
