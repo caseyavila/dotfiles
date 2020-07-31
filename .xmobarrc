@@ -1,7 +1,7 @@
 Config { 
 
    -- appearance
-     font =         "xft:jmk Neep:size=8"
+     font =         "xft:jmk Neep:size=9"
    , bgColor =      "black"
    , fgColor =      "#fdfdfd"
    , position =     Top
