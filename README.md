@@ -21,8 +21,8 @@ The files to accompany my linux setup.
 ### X Server Configuration
 Append the followoing to `~/.xinitrc`:
 ```
+xset m 0 0 &
 xset r rate 250 30 &
-
 exec xmonad
 ```
 
