@@ -2,14 +2,14 @@
 
 declare options=("alacritty
 bash
-zsh
+dmenu-edit-configs
 picom
 st
-vim
 tmux
+vim
 xmobar
 xmonad
-dmenu-edit-configs
+zsh
 ")
 
 choice=$(echo -e "${options[@]}" | dmenu -i -p 'Edit config file: ')
@@ -21,8 +21,8 @@ case "$choice" in
 	bash)
 		choice="$HOME/.bashrc"
 	;;
-	zsh)
-		choice="$HOME/.zshrc"
+	dmenu-edit-configs)
+		choice="$HOME/.dmenu/dmenu-edit-configs.sh"
 	;;
 	picom)
 		choice="$HOME/.config/picom.conf"
@@ -30,11 +30,11 @@ case "$choice" in
 	st)
 		choice="$HOME/Proyectos/st/config.h"
 	;;
-	vim)
-		choice="$HOME/.vimrc"
-	;;
 	tmux)
 		choice="$HOME/.tmux.conf"
+	;;
+	vim)
+		choice="$HOME/.vimrc"
 	;;
 	xmobar)
 		choice="$HOME/.xmobarrc"
@@ -42,8 +42,8 @@ case "$choice" in
 	xmonad)
 		choice="$HOME/.xmonad/xmonad.hs"
 	;;
-	dmenu-edit-configs)
-		choice="$HOME/.dmenu/dmenu-edit-configs.sh"
+	zsh)
+		choice="$HOME/.zshrc"
 	;;
 	*)
 		exit 1
