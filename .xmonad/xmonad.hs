@@ -8,13 +8,21 @@
 --
 
 import XMonad
+
 import Data.Monoid
+
 import System.Exit
+
+import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.SetWMName
+
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Run
+
 import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
+
 import Graphics.X11.ExtraTypes.XF86
 
 import qualified XMonad.StackSet as W
@@ -26,11 +34,11 @@ import qualified Data.Map        as M
 -- Other terminals can be used, such as alacritty and xcfe4-terminal
 -- When changing the default terminal, make sure to also change it in 
 -- .picom.conf and .dmenu/dmenu-edit-configs.sh
-myTerminal      = "st"
+myTerminal      = "alacritty"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
-myFocusFollowsMouse = True
+myFocusFollowsMouse = False
 
 -- Whether clicking on a window to focus also passes the click to the window
 myClickJustFocuses :: Bool
@@ -44,7 +52,7 @@ myBorderWidth   = 2
 -- ("right alt"), which does not conflict with emacs keybindings. The
 -- "windows key" is usually mod4Mask.
 --
-myModMask       = mod1Mask
+myModMask       = mod4Mask
 
 -- The default number of workspaces (virtual screens) and their names.
 -- By default we use numeric strings, but any string may be used as a
@@ -55,7 +63,7 @@ myModMask       = mod1Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
+myWorkspaces    = ["dev","www","msg","mus","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -72,6 +80,15 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch dmenu
     , ((modm,               xK_p     ), spawn "dmenu_run")
+
+    -- launch firefox
+    , ((modm,               xK_b     ), spawn "firefox")
+
+    -- screenshot to clipboard
+    , ((modm .|. shiftMask, xK_s     ), spawn "maim -s | xclip -selection clipboard -t image/png")
+
+    -- screenshot to file
+    , ((modm,               xK_s     ), spawn "maim -s ~/$(date +%s).png")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
@@ -92,7 +109,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_n     ), refresh)
 
     -- Move focus to the next window
-    , ((modm,               xK_Tab   ), windows W.focusDown)
+    , ((mod1Mask,           xK_Tab   ), windows W.focusDown)
 
     -- Move focus to the next window
     , ((modm,               xK_j     ), windows W.focusDown)
@@ -262,6 +279,7 @@ myLogHook = return ()
 myStartupHook = do 
     spawnOnce "nitrogen --restore &"
     spawnOnce "picom"
+    setWMName "LG3D"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
@@ -270,7 +288,13 @@ myStartupHook = do
 --
 main = do 
     xmproc <- spawnPipe "xmobar -x 0"
-    xmonad $ docks defaults
+    xmonad $ docks defaults {
+        logHook = dynamicLogWithPP $ xmobarPP {
+            ppOutput = hPutStrLn xmproc
+        }
+        , manageHook = manageDocks <+> manageHook def
+    }
+
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will

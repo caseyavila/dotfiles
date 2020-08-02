@@ -7,11 +7,12 @@ Config {
    , position =     Top
    , border =       BottomB
    , borderColor =  "#ff69b4"
+   , iconRoot =     "./.xmonad/icons"
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "}{ %dynnetwork% | %multicoretemp% | %multicpu% | %memory% | %default:Master% | %date% | %time%"
+   , template = " %StdinReader% } Hakuna Matata { %dynnetwork% | %memory% | %multicpu% | %multicoretemp% | %default:Master% | %date% | %time% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -19,7 +20,7 @@ Config {
    , allDesktops =      True    -- show on all desktops
    , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
    , pickBroadest =     False   -- choose widest display (multi-monitor)
-   , persistent =       True    -- enable/disable hiding (True = disabled)
+   , persistent =       False   -- enable/disable hiding (True = disabled)
 
    -- plugins
    --   Numbers can be automatically colored according to their value. xmobar
@@ -38,16 +39,16 @@ Config {
    , commands = 
 
         -- network activity monitor (dynamic interface resolution)
-        [ Run DynNetwork     [ "--template" , "<tx>kB/s - <rx>kB/s"
-                             , "--Low"      , "1000"       -- units: B/s
-                             , "--High"     , "5000"       -- units: B/s
+        [ Run DynNetwork     [ "--template" , "<tx>kB/s <icon=net_up_01.xbm/><icon=net_down_01.xbm/> <rx>kB/s"
+                             , "--Low"      , "1000"       -- units: kB/s
+                             , "--High"     , "5000"       -- units: kB/s
                              , "--low"      , "green"
                              , "--normal"   , "orange"
                              , "--high"     , "red"
                              ] 10
 
         -- cpu activity monitor
-        , Run MultiCpu       [ "--template" , "Cpu: <total0>%"
+        , Run MultiCpu       [ "--template" , "<icon=cpu.xbm/> <total0>%"
                              , "--Low"      , "50"         -- units: %
                              , "--High"     , "85"         -- units: %
                              , "--low"      , "green"
@@ -65,7 +66,7 @@ Config {
                              ] 50
                           
         -- memory usage monitor
-        , Run Memory         [ "--template" ,"Mem: <usedratio>%"
+        , Run Memory         [ "--template" , "<icon=mem.xbm/> <usedratio>%"
                              , "--Low"      , "20"        -- units: %
                              , "--High"     , "90"        -- units: %
                              , "--low"      , "green"
@@ -90,13 +91,20 @@ Config {
                                        , "-i"	, "<fc=#006000>Charged</fc>"
                              ] 50
 
-        -- time and date indicator 
-        --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
+        -- date indicator 
         , Run Date           "%a %d-%m-%Y" "date" 10
 
+        -- time indicator
         , Run Date           "%T" "time" 10
 
-        , Run Volume "default" "Master" [] 10
+        -- volume indicator
+        , Run Volume "default" "Master" 
+                             [ "--template" , "<status> <volume>%", "--"
+                             , "-O"         , "<icon=spkr_01.xbm/>"
+                             , "-o"         , "<icon=spkr_02.xbm/>"
+                             ] 1
+
+        , Run StdinReader
 
        ]
    }
