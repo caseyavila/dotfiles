@@ -57,7 +57,7 @@ Config {
                              ] 10
 
         -- cpu core temperature monitor
-        , Run MultiCoreTemp  [ "--template" , "<avg>°C"
+        , Run MultiCoreTemp  [ "--template" , "<icon=thermo.xbm/> <avg>°C"
                              , "--Low"      , "70"        -- units: °C
                              , "--High"     , "80"        -- units: °C
                              , "--low"      , "green"
@@ -92,16 +92,16 @@ Config {
                              ] 50
 
         -- date indicator 
-        , Run Date           "%a %d-%m-%Y" "date" 10
+        , Run Date           "<icon=calendar.xbm/> %a %d-%m-%Y" "date" 10
 
         -- time indicator
-        , Run Date           "%T" "time" 10
+        , Run Date           "<icon=clock.xbm/> %T" "time" 10
 
         -- volume indicator
         , Run Volume "default" "Master" 
                              [ "--template" , "<status> <volume>%", "--"
                              , "-O"         , "<icon=spkr_01.xbm/>"
-                             , "-o"         , "<icon=spkr_02.xbm/>"
+                             , "-o"         , "<icon=mute.xbm/>"
                              ] 1
 
         , Run StdinReader
