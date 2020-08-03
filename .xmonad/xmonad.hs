@@ -90,6 +90,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- screenshot to file
     , ((modm,               xK_s     ), spawn "maim -s ~/$(date +%s).png")
 
+    -- toggle picom
+    , ((modm,               xK_c     ), spawn "killall picom || picom --experimental-backends")
+
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
 
@@ -275,10 +278,10 @@ myLogHook = return ()
 -- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
 -- per-workspace layout choices.
 --
--- By default, do nothing.
+-- Start nitrogen once on boot, restart picom every time
 myStartupHook = do 
     spawnOnce "nitrogen --restore &"
-    spawnOnce "picom --experimental-backends"
+    spawnOnce "picom --experimental-backends &"
     setWMName "LG3D"
 
 ------------------------------------------------------------------------
@@ -290,7 +293,10 @@ main = do
     xmproc <- spawnPipe "xmobar -x 0"
     xmonad $ docks defaults {
         logHook = dynamicLogWithPP $ xmobarPP {
-            ppOutput = hPutStrLn xmproc
+            ppOutput = hPutStrLn xmproc,
+            ppCurrent = xmobarColor "#ff69b4" "",
+            ppTitle = xmobarColor "pink" "" . shorten 60,
+            ppSep = " | "
         }
         , manageHook = manageDocks <+> manageHook def
     }

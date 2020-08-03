@@ -12,7 +12,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = " %StdinReader% } Hakuna Matata { %dynnetwork% | %memory% | %multicpu% | %multicoretemp% | %default:Master% | %date% | %time% "
+   , template = " <fc=#88ddfc><icon=arch.xbm/></fc> | %StdinReader% } <fc=#88ddfc>It's a labor of love</fc> { %dynnetwork% | %memory% | %multicpu% | %multicoretemp% | %default:Master% | %date% | %time% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -39,39 +39,39 @@ Config {
    , commands = 
 
         -- network activity monitor (dynamic interface resolution)
-        [ Run DynNetwork     [ "--template" , "<tx>kB/s <icon=net_up_01.xbm/><icon=net_down_01.xbm/> <rx>kB/s"
+        [ Run DynNetwork     [ "--template" , "<tx>kB/s <fc=#ff69b4><icon=net_up_01.xbm/><icon=net_down_01.xbm/></fc> <rx>kB/s"
                              , "--Low"      , "1000"       -- units: kB/s
                              , "--High"     , "5000"       -- units: kB/s
-                             , "--low"      , "green"
-                             , "--normal"   , "orange"
-                             , "--high"     , "red"
+                             , "--low"      , "white"
+                             , "--normal"   , "pink"
+                             , "--high"     , "#ff69b4"
                              ] 10
 
         -- cpu activity monitor
-        , Run MultiCpu       [ "--template" , "<icon=cpu.xbm/> <total0>%"
+        , Run MultiCpu       [ "--template" , "<fc=#ff69b4><icon=cpu.xbm/></fc> <total0>%"
                              , "--Low"      , "50"         -- units: %
                              , "--High"     , "85"         -- units: %
-                             , "--low"      , "green"
-                             , "--normal"   , "orange"
-                             , "--high"     , "red"
+                             , "--low"      , "white"
+                             , "--normal"   , "pink"
+                             , "--high"     , "#ff69b4"
                              ] 10
 
         -- cpu core temperature monitor
-        , Run MultiCoreTemp  [ "--template" , "<icon=thermo.xbm/> <avg>°C"
-                             , "--Low"      , "70"        -- units: °C
-                             , "--High"     , "80"        -- units: °C
-                             , "--low"      , "green"
-                             , "--normal"   , "orange"
-                             , "--high"     , "red"
+        , Run MultiCoreTemp  [ "--template" , "<fc=#ff69b4><icon=thermo.xbm/></fc> <avg>°C"
+                             , "--Low"      , "60"        -- units: °C
+                             , "--High"     , "70"        -- units: °C
+                             , "--low"      , "white"
+                             , "--normal"   , "pink"
+                             , "--high"     , "#ff69b4"
                              ] 50
                           
         -- memory usage monitor
-        , Run Memory         [ "--template" , "<icon=mem.xbm/> <usedratio>%"
+        , Run Memory         [ "--template" , "<fc=#ff69b4><icon=mem.xbm/></fc> <usedratio>%"
                              , "--Low"      , "20"        -- units: %
                              , "--High"     , "90"        -- units: %
-                             , "--low"      , "green"
-                             , "--normal"   , "orange"
-                             , "--high"     , "red"
+                             , "--low"      , "white"
+                             , "--normal"   , "pink"
+                             , "--high"     , "#ff69b4"
                              ] 10
 
         -- battery monitor
@@ -92,16 +92,18 @@ Config {
                              ] 50
 
         -- date indicator 
-        , Run Date           "<icon=calendar.xbm/> %a %d-%m-%Y" "date" 10
+        , Run Date           "<fc=#ff69b4><icon=calendar.xbm/></fc> %a %d-%m-%Y" "date" 10
 
         -- time indicator
-        , Run Date           "<icon=clock.xbm/> %T" "time" 10
+        , Run Date           "<fc=#ff69b4><icon=clock.xbm/></fc> %T" "time" 10
 
         -- volume indicator
         , Run Volume "default" "Master" 
                              [ "--template" , "<status> <volume>%", "--"
-                             , "-O"         , "<icon=spkr_01.xbm/>"
-                             , "-o"         , "<icon=mute.xbm/>"
+                             , "--on"       , "<icon=spkr_01.xbm/>"
+                             , "--off"      , "<icon=mute.xbm/>"
+                             , "--onc"      , "#ff69b4"
+                             , "--offc"     , "#ff69b4"
                              ] 1
 
         , Run StdinReader
