@@ -11,6 +11,8 @@ The files to accompany my linux setup.
 - dmenu
 - picom
 - nitrogen
+- firefox
+- maim
 
 ## Notes
 - 10 pixels of padding for the terminal is nice
