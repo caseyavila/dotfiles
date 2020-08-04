@@ -185,18 +185,18 @@ colors:
     blue:    '0x487799'
     magenta: '0xb9637e'
     cyan:    '0x44abc4'
-    white:   '0x6f798c'
+    white:   '0xe5e5e5'
 
   # Bright colors
   bright:
-    black:   '0x6f798c'
+    black:   '0x7f7f7f'
     red:     '0xb86974'
     green:   '0x469e76'
     yellow:  '0xc7a775'
     blue:    '0x5287ad'
     magenta: '0xcc6d8b'
     cyan:    '0x88ddfc'
-    white:   '0x9faab8'
+    white:   '0xffffff'
 
   cursor:
     cursor: '0xcfcfcf'
