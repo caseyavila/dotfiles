@@ -8,7 +8,7 @@ The files to accompany my linux setup.
 - alacritty (any terminal emulator is fine)
 - xmonad
 - xmobar
-- dmenu
+- rofi
 - picom
 - nitrogen
 - firefox
