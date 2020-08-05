@@ -2,8 +2,9 @@
 
 declare options=("alacritty
 bash
-dmenu-edit-configs
+edit-configs
 picom
+rofi
 st
 tmux
 vim
@@ -12,7 +13,7 @@ xmonad
 zsh
 ")
 
-choice=$(echo -e "${options[@]}" | dmenu -i -p 'Edit config file: ')
+choice=$(echo -e "${options[@]}" | rofi -dmenu -p 'Edit config file')
 
 case "$choice" in
 	alacritty)
@@ -26,6 +27,9 @@ case "$choice" in
 	;;
 	picom)
 		choice="$HOME/.config/picom.conf"
+	;;
+	rofi)
+		choice="$HOME/.config/rofi/config.rasi"
 	;;
 	st)
 		choice="$HOME/Proyectos/st/config.h"

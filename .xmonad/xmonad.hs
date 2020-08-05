@@ -33,12 +33,12 @@ import qualified Data.Map        as M
 --
 -- Other terminals can be used, such as alacritty and xcfe4-terminal
 -- When changing the default terminal, make sure to also change it in 
--- .picom.conf and .dmenu/dmenu-edit-configs.sh
+-- .picom.conf and .config/rofi/edit-configs.sh
 myTerminal      = "alacritty"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
-myFocusFollowsMouse = False
+myFocusFollowsMouse = True
 
 -- Whether clicking on a window to focus also passes the click to the window
 myClickJustFocuses :: Bool
@@ -46,7 +46,7 @@ myClickJustFocuses = False
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 2
+myBorderWidth   = 1
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
 -- ("right alt"), which does not conflict with emacs keybindings. The
@@ -67,8 +67,8 @@ myWorkspaces    = ["dev","www","msg","mus","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#ff69b4"
+myNormalBorderColor  = "#ffffff"
+myFocusedBorderColor = "#88ddfc"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -78,8 +78,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
-    -- launch dmenu
-    , ((modm,               xK_p     ), spawn "dmenu_run")
+    -- launch rofi
+    , ((modm,               xK_p     ), spawn "rofi -show run")
 
     -- launch firefox
     , ((modm,               xK_b     ), spawn "firefox")
@@ -96,8 +96,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
 
-    -- launch dmenu-edit-configs
-    , ((modm,               xK_d     ), spawn "~/.dmenu/dmenu-edit-configs.sh")
+    -- launch edit-configs
+    , ((modm,               xK_d     ), spawn "~/.config/rofi/edit-configs.sh")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
