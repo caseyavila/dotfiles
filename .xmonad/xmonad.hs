@@ -14,6 +14,7 @@ import Data.Monoid
 import System.Exit
 
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
 
@@ -291,7 +292,7 @@ myStartupHook = do
 --
 main = do 
     xmproc <- spawnPipe "xmobar -x 0"
-    xmonad $ docks defaults {
+    xmonad $ docks $ ewmh defaults {
         logHook = dynamicLogWithPP $ xmobarPP {
             ppOutput = hPutStrLn xmproc,
             ppCurrent = xmobarColor "#ff69b4" "",
@@ -299,6 +300,7 @@ main = do
             ppSep = " | "
         }
         , manageHook = manageDocks <+> manageHook def
+        , handleEventHook = handleEventHook def <+> fullscreenEventHook
     }
 
 
