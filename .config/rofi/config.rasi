@@ -3,6 +3,6 @@ configuration {
     combi-modi: "window,drun,ssh";
     font: "Inconsolata Regular 13";
     bw: 1;
-    color-window: "#00ffffff, #88ddfc, #ffffff";
+    color-window: "#66000000, #88ddfc, #ffffff";
     color-normal: "#00ffffff, #ffffff, #00ffffff, #00ffffff, #ff69b4";
 }
