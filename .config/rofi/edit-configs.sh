@@ -22,8 +22,8 @@ case "$choice" in
 	bash)
 		choice="$HOME/.bashrc"
 	;;
-	dmenu-edit-configs)
-		choice="$HOME/.dmenu/dmenu-edit-configs.sh"
+	edit-configs)
+		choice="$HOME/.config/rofi/edit-configs.sh"
 	;;
 	picom)
 		choice="$HOME/.config/picom.conf"
