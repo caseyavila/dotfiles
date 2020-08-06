@@ -86,10 +86,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_b     ), spawn "firefox")
 
     -- screenshot to clipboard
-    , ((modm .|. shiftMask, xK_s     ), spawn "maim -s | xclip -selection clipboard -t image/png")
+    , ((modm .|. shiftMask, xK_s     ), spawn "maim --hidecursor -s | xclip -selection clipboard -t image/png")
 
     -- screenshot to file
-    , ((modm,               xK_s     ), spawn "maim -s ~/$(date +%s).png")
+    , ((modm,               xK_s     ), spawn "maim --hidecursor -s ~/$(date +%s).png")
 
     -- toggle picom
     , ((modm,               xK_c     ), spawn "killall picom || picom --experimental-backends")
