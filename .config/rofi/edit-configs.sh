@@ -13,7 +13,7 @@ xmonad
 zsh
 ")
 
-choice=$(echo -e "${options[@]}" | rofi -dmenu -p 'Edit config file')
+choice=$(echo -e "${options[@]}" | rofi -dmenu -p 'Edit dotfile')
 
 case "$choice" in
 	alacritty)
