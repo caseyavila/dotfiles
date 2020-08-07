@@ -292,7 +292,7 @@ myStartupHook = do
 --
 main = do 
     xmproc <- spawnPipe "xmobar -x 0"
-    xmonad $ docks $ ewmh defaults {
+    xmonad $ docks $ ewmhFullscreen $ ewmh defaults {
         logHook = dynamicLogWithPP $ xmobarPP {
             ppOutput = hPutStrLn xmproc,
             ppCurrent = xmobarColor "#ff69b4" "",
@@ -300,7 +300,6 @@ main = do
             ppSep = " | "
         }
         , manageHook = manageDocks <+> manageHook def
-        , handleEventHook = handleEventHook def <+> fullscreenEventHook
     }
 
 
