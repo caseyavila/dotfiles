@@ -9,10 +9,7 @@
 
 import XMonad
 
-import Control.Monad
-
 import Data.Monoid
-import Data.Maybe
 
 import System.Exit
 
@@ -31,7 +28,6 @@ import Graphics.X11.ExtraTypes.XF86
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
-
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -288,7 +284,6 @@ myStartupHook = do
     spawnOnce "nitrogen --restore &"
     spawnOnce "picom --experimental-backends &"
     setWMName "LG3D"
-    addEWMHFullscreen
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
@@ -304,8 +299,8 @@ main = do
             ppTitle = xmobarColor "pink" "" . shorten 60,
             ppSep = " | "
         }
-        , manageHook = manageDocks <+> manageHook defaults
-        , handleEventHook = handleEventHook defaults <+> fullscreenEventHook
+        , manageHook = manageDocks <+> manageHook def
+        , handleEventHook = handleEventHook def <+> fullscreenEventHook
     }
 
 
@@ -337,24 +332,6 @@ defaults = def {
         logHook            = myLogHook,
         startupHook        = myStartupHook
     }
-
--- Fix for Firefox fullscreen compatibility with Extended Window Manager Hints
---
-addNETSupported :: Atom -> X ()
-addNETSupported x   = withDisplay $ \dpy -> do
-    r               <- asks theRoot
-    a_NET_SUPPORTED <- getAtom "_NET_SUPPORTED"
-    a               <- getAtom "ATOM"
-    liftIO $ do
-       sup <- (join . maybeToList) <$> getWindowProperty32 dpy a_NET_SUPPORTED r
-       when (fromIntegral x `notElem` sup) $
-         changeProperty32 dpy r a_NET_SUPPORTED a propModeAppend [fromIntegral x]
-
-addEWMHFullscreen :: X ()
-addEWMHFullscreen   = do
-    wms <- getAtom "_NET_WM_STATE"
-    wfs <- getAtom "_NET_WM_STATE_FULLSCREEN"
-    mapM_ addNETSupported [wms, wfs]
 
 -- | Finally, a copy of the default bindings in simple textual tabular format.
 help :: String
