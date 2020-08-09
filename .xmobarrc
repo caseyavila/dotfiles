@@ -12,7 +12,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = " <fc=#88ddfc><icon=arch.xbm/></fc> | %StdinReader% } <fc=#88ddfc>It's a labor of love</fc> { %dynnetwork% | %memory% | %multicpu% | %multicoretemp% | %default:Master% | %date% | %time% "
+   , template = " <fc=#88ddfc><icon=arch.xbm/></fc> | %StdinReader% } <fc=#88ddfc>It's a labor of love</fc> { %dynnetwork% | %memory% | %multicpu% | %multicoretemp% | %alsa:default:Master% | %date% | %time% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -97,14 +97,14 @@ Config {
         -- time indicator
         , Run Date           "<fc=#ff69b4><icon=clock.xbm/></fc> %T" "time" 10
 
-        -- volume indicator
-        , Run Volume "default" "Master" 
+        -- alsa volume indicator
+        , Run Alsa "default" "Master"
                              [ "--template" , "<status> <volume>%", "--"
                              , "--on"       , "<icon=spkr_01.xbm/>"
                              , "--off"      , "<icon=mute.xbm/>"
                              , "--onc"      , "#ff69b4"
                              , "--offc"     , "#ff69b4"
-                             ] 1
+                             ]
 
         , Run StdinReader
 
