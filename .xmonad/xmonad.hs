@@ -80,7 +80,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch rofi
-    , ((modm,               xK_p     ), spawn "rofi -show run")
+    , ((modm,               xK_p     ), spawn "rofi -modi run -show run")
 
     -- launch firefox
     , ((modm,               xK_b     ), spawn "firefox")
@@ -291,7 +291,7 @@ myStartupHook = do
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do 
-    xmproc <- spawnPipe "xmobar -x 0"
+    xmproc <- spawnPipeWithNoEncoding "xmobar -x 0"
     xmonad $ docks $ ewmhFullscreen $ ewmh defaults {
         logHook = dynamicLogWithPP $ xmobarPP {
             ppOutput = hPutStrLn xmproc,
@@ -299,7 +299,6 @@ main = do
             ppTitle = xmobarColor "pink" "" . shorten 60,
             ppSep = " | "
         }
-        , manageHook = manageDocks <+> manageHook def
     }
 
 
