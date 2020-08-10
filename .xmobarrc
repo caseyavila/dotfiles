@@ -12,7 +12,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = " <fc=#88ddfc><icon=arch.xbm/></fc> | %StdinReader% } <fc=#88ddfc>It's a labor of love</fc> { %dynnetwork% | %memory% | %multicpu% | %multicoretemp% | %alsa:default:Master% | %date% | %time% "
+   , template = " <fc=#948cd2><icon=gentoo.xbm/></fc> | %StdinReader% } <fc=#88ddfc>It's a labor of love</fc> { %dynnetwork% | %memory% | %multicpu% | %multicoretemp% | %alsa:default:Master% | %date% | %time% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
