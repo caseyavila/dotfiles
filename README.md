@@ -2,17 +2,22 @@
 The files to accompany my linux setup.
 
 ## Programs
+*Indents signify less favorable, though useful alternatives*
+- alacritty
+  - st
 - bash
-- vim
-- tmux
-- alacritty (any terminal emulator is fine)
-- xmonad
-- xmobar
-- rofi
-- picom
-- nitrogen
+  - zsh
+- feh
+  - nitrogen
 - firefox
 - maim
+- no compositor
+  - picom
+- rofi
+- tmux
+- vim
+- xmobar
+- xmonad
 
 ## Notes
 - 10 pixels of padding for the terminal is nice
