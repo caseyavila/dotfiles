@@ -92,7 +92,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_s     ), spawn "maim --hidecursor -s ~/$(date +%s).png")
 
     -- toggle picom
-    , ((modm,               xK_c     ), spawn "killall picom || picom --experimental-backends")
+    , ((modm,               xK_c     ), spawn "killall picom || picom")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
@@ -287,8 +287,6 @@ myLogHook = return ()
 --
 -- Start nitrogen once on boot, restart picom every time
 myStartupHook = do 
-    spawnOnce "nitrogen --restore &"
-    spawnOnce "picom --experimental-backends &"
     setWMName "LG3D"
 
 ------------------------------------------------------------------------
