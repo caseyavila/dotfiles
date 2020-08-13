@@ -3,14 +3,18 @@ The files to accompany my linux setup.
 
 ## Programs
 - bash
+  - zsh
 - vim
 - tmux
-- alacritty (any terminal emulator is fine)
+- alacritty
+  - st
 - xmonad
 - xmobar
 - rofi
-- picom
-- nitrogen
+- no compositor
+  - picom
+- feh
+  - nitrogen
 - firefox
 - maim
 
