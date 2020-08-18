@@ -21,7 +21,8 @@ The files to accompany my linux setup.
 
 ## Notes
 - 10 pixels of padding for the terminal is nice
-- Bitmap fonts like Neep and Terminus are also very nice
+- Bitmap fonts like Neep, Terminus, and Tewi are also very nice
+- Icons are based off of [siji](https://github.com/stark/siji)
 
 ## Other Setup Info (mainly personal notes)
 
