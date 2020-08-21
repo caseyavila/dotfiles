@@ -301,11 +301,15 @@ main = do
         logHook = dynamicLogWithPP $ xmobarPP {
             ppOutput = hPutStrLn xmproc,
             ppCurrent = xmobarColor "#ff69b4" "",
+            ppLayout = myLayoutPrinter,
             ppTitle = xmobarColor "pink" "" . shorten 60,
             ppSep = " | "
         }
     }
 
+myLayoutPrinter "Spacing Tall"        = "<icon=layout_tall.xbm/>"
+myLayoutPrinter "Spacing Mirror Tall" = "<icon=layout_mirror.xbm/>"
+myLayoutPrinter "Spacing Full"        = "<icon=layout_full.xbm/>"
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will

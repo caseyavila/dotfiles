@@ -8,6 +8,7 @@ Config {
    , border =       BottomB
    , borderColor =  "#ff69b4"
    , iconRoot =     "./.xmonad/icons"
+   , iconOffset =   6
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
