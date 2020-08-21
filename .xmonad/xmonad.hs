@@ -257,7 +257,8 @@ myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
+    , resource  =? "kdesktop"       --> doIgnore
+    , stringProperty "_NET_WM_NAME" =? "Emulator" --> doFloat]
 
 ------------------------------------------------------------------------
 -- Event handling
