@@ -1,8 +1,8 @@
 # dotfiles
 The files to accompany my linux setup.
+![screenshot](https://camo.githubusercontent.com/8cb822f22c581a6ceb84135815e113b5a9530850/68747470733a2f2f696d6775722e636f6d2f5541634e4f6d772e706e67)
 
 ## Programs
-*Indents signify less favorable, though useful alternatives*
 - alacritty
   - st
 - bash
@@ -22,7 +22,6 @@ The files to accompany my linux setup.
 ## Notes
 - 10 pixels of padding for the terminal is nice
 - Bitmap fonts like Neep, Terminus, and Tewi are also very nice
-- Icons are based off of [siji](https://github.com/stark/siji)
 
 ## Other Setup Info (mainly personal notes)
 
