@@ -8,7 +8,8 @@ The files to accompany my linux setup.
   - st
 - bash
   - zsh
-- feh
+- no background
+  - feh
   - nitrogen
 - firefox
 - maim
