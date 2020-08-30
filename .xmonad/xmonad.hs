@@ -18,11 +18,12 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
 
-import XMonad.Util.SpawnOnce
 import XMonad.Util.Run
+import XMonad.Util.SpawnOnce
 
-import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Spacing
 
 import Graphics.X11.ExtraTypes.XF86
 
@@ -333,7 +334,7 @@ defaults = def {
         mouseBindings      = myMouseBindings,
 
       -- hooks, layouts
-        layoutHook         = avoidStruts $ spacingRaw False (Border 5 5 5 5) True (Border 5 5 5 5) True $ myLayout,
+        layoutHook         = lessBorders OnlyScreenFloat $ avoidStruts $ spacingRaw False (Border 5 5 5 5) True (Border 5 5 5 5) True $ myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
