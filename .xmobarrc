@@ -87,7 +87,7 @@ Config {
                                        -- discharging status
                                        , "-o"	, "<icon=bat_low_01.xbm/> <left>"
                                        -- AC "on" status
-                                       , "-O"	, "<icon=bat_charge_01.xbm/> <left>"
+                                       , "-O"	, "<icon=zeus.xbm/> <left>"
                                        -- charged status
                                        , "-i"	, "<icon=bat_full_01.xbm/>"
                              ] 10
