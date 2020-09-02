@@ -76,21 +76,21 @@ Config {
                              ] 10
 
         -- battery monitor
-        , Run Battery        [ "--template" , "Batt: <acstatus>"
+        , Run Battery        [ "--template" , "<acstatus>"
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "80"        -- units: %
-                             , "--low"      , "red"
-                             , "--normal"   , "orange"
-                             , "--high"     , "green"
+                             , "--low"      , "#ff69b4"
+                             , "--normal"   , "pink"
+                             , "--high"     , "white"
 
                              , "--" -- battery specific options
                                        -- discharging status
-                                       , "-o"	, "<left>% (<timeleft>)"
+                                       , "-o"	, "<icon=bat_low_01.xbm/> <left>"
                                        -- AC "on" status
-                                       , "-O"	, "<fc=#dAA520>Charging</fc>"
+                                       , "-O"	, "<icon=bat_charge_01.xbm/> <left>"
                                        -- charged status
-                                       , "-i"	, "<fc=#006000>Charged</fc>"
-                             ] 50
+                                       , "-i"	, "<icon=bat_full_01.xbm/>"
+                             ] 10
 
         -- date indicator 
         , Run Date           "<fc=#ff69b4><icon=calendar.xbm/></fc> %a %d-%m-%Y" "date" 10
