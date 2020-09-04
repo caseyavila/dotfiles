@@ -93,7 +93,7 @@ Config {
                              ] 10
 
         -- date indicator 
-        , Run DateZone       "<fc=#ff69b4><icon=calendar.xbm/></fc> %a %d-%m-%Y" "es_MX.UTF-8" "" "date" 10
+        , Run DateZone       "<fc=#ff69b4><icon=calendar.xbm/></fc> %a %-d-%-m-%Y" "es_MX.UTF-8" "" "date" 10
 
         -- time indicator
         , Run Date           "<fc=#ff69b4><icon=clock.xbm/></fc> %T" "time" 10
