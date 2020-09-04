@@ -21,5 +21,5 @@ set cursorline
 set colorcolumn=80
 set timeoutlen=1000 ttimeoutlen=0
 
-" copy (write) highlighted text to .vimbuffer USE ONLY ON WINDOWS WSL
-vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe <CR><CR>
+map <F10> :silent !pandoc % --pdf-engine=pdfroff -o %:r.pdf<CR>:redraw!<CR>
+map <F11> :silent !zathura %:r.pdf &<CR>
