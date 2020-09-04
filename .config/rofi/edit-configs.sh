@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
-declare options=("alacritty
+options="alacritty
 bash
 edit-configs
 picom
@@ -11,9 +11,9 @@ vim
 xmobar
 xmonad
 zsh
-")
+"
 
-choice=$(echo -e "${options[@]}" | rofi -dmenu -p 'Edit dotfile')
+choice=$(echo "${options}" | rofi -dmenu -p 'Edit dotfile')
 
 case "$choice" in
 	alacritty)
