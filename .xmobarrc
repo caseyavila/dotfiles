@@ -43,7 +43,6 @@ Config {
         [ Run DynNetwork     [ "--template" , "<tx>kB/s <fc=#ff69b4><icon=net_up_01.xbm/><icon=net_down_01.xbm/></fc> <rx>kB/s"
                              , "--Low"      , "1000"       -- units: kB/s
                              , "--High"     , "5000"       -- units: kB/s
-                             , "--low"      , "white"
                              , "--normal"   , "pink"
                              , "--high"     , "#ff69b4"
                              ] 10
@@ -52,7 +51,6 @@ Config {
         , Run MultiCpu       [ "--template" , "<fc=#ff69b4><icon=cpu.xbm/></fc> <total0>%"
                              , "--Low"      , "50"         -- units: %
                              , "--High"     , "85"         -- units: %
-                             , "--low"      , "white"
                              , "--normal"   , "pink"
                              , "--high"     , "#ff69b4"
                              ] 10
@@ -61,7 +59,6 @@ Config {
         , Run MultiCoreTemp  [ "--template" , "<fc=#ff69b4><icon=thermo.xbm/></fc> <avg>°C"
                              , "--Low"      , "60"        -- units: °C
                              , "--High"     , "70"        -- units: °C
-                             , "--low"      , "white"
                              , "--normal"   , "pink"
                              , "--high"     , "#ff69b4"
                              ] 50
@@ -70,7 +67,6 @@ Config {
         , Run Memory         [ "--template" , "<fc=#ff69b4><icon=mem.xbm/></fc> <usedratio>%"
                              , "--Low"      , "20"        -- units: %
                              , "--High"     , "90"        -- units: %
-                             , "--low"      , "white"
                              , "--normal"   , "pink"
                              , "--high"     , "#ff69b4"
                              ] 10
@@ -81,7 +77,6 @@ Config {
                              , "--High"     , "80"        -- units: %
                              , "--low"      , "#ff69b4"
                              , "--normal"   , "pink"
-                             , "--high"     , "white"
 
                              , "--" -- battery specific options
                                        -- discharging status
