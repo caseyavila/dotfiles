@@ -170,36 +170,70 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-colors:
-  # Default colors
-  primary:
-    background: '0x0c0c0c'
-    foreground: '0xcfcfcf'
+schemes:
+  mine: &dark
+    # Default colors
+    primary:
+      background: '0x0c0c0c'
+      foreground: '0xcfcfcf'
 
-  # Normal colors
-  normal:
-    black:   '0x0c0c0c'
-    red:     '0xa65f69'
-    green:   '0x3b8563'
-    yellow:  '0xb39669'
-    blue:    '0x487799'
-    magenta: '0x7863b9'
-    cyan:    '0x44abc4'
-    white:   '0xe5e5e5'
+    # Normal colors
+    normal:
+      black:   '0x0c0c0c'
+      red:     '0xa65f69'
+      green:   '0x3b8563'
+      yellow:  '0xb39669'
+      blue:    '0x487799'
+      magenta: '0x7863b9'
+      cyan:    '0x44abc4'
+      white:   '0xe5e5e5'
 
-  # Bright colors
-  bright:
-    black:   '0x7f7f7f'
-    red:     '0xb86974'
-    green:   '0x469e76'
-    yellow:  '0xc7a775'
-    blue:    '0x5287ad'
-    magenta: '0x9c6dcc'
-    cyan:    '0x88ddfc'
-    white:   '0xffffff'
+    # Bright colors
+    bright:
+      black:   '0x7f7f7f'
+      red:     '0xb86974'
+      green:   '0x469e76'
+      yellow:  '0xc7a775'
+      blue:    '0x5287ad'
+      magenta: '0x9c6dcc'
+      cyan:    '0x88ddfc'
+      white:   '0xffffff'
 
-  cursor:
-    cursor: '0xcfcfcf'
+    cursor:
+      cursor: '0xcfcfcf'
+
+  faint_light: &light
+      # Default colors
+      primary:
+        background: '0xfcfcfc'
+        foreground: '0x6f798c'
+
+      # Normal colors
+      normal:
+        black:   '0xfcfcfc'
+        red:     '0xb86974'
+        green:   '0x469e76'
+        yellow:  '0xc7a775'
+        blue:    '0x5287ad'
+        magenta: '0xcc6d8b'
+        cyan:    '0x3c97ad'
+        white:   '0xa7acb3'
+
+      # Bright colors
+      bright:
+        black:   '0xa7acb3'
+        red:     '0xb86974'
+        green:   '0x469e76'
+        yellow:  '0xc7a775'
+        blue:    '0x5287ad'
+        magenta: '0xcc6d8b'
+        cyan:    '0x3c97ad'
+        white:   '0x6f798c'
+
+      cursor:
+        cursor: '0x909090'
+
+colors: *dark
 
   # Dim colors
   #
