@@ -8,13 +8,11 @@ The files to accompany my linux setup.
   - st
 - bash
   - zsh
-- no background
-  - feh
+- feh
   - nitrogen
 - firefox
 - maim
-- no compositor
-  - picom
+- picom
 - rofi
 - tmux
 - vim

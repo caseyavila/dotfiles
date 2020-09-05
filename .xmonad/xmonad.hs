@@ -69,7 +69,7 @@ myWorkspaces    = ["dev","www","msg","mus","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = "#ffffff"
+myNormalBorderColor  = "#dddddd"
 myFocusedBorderColor = "#88ddfc"
 
 ------------------------------------------------------------------------
@@ -93,7 +93,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_s     ), spawn "maim --hidecursor -s ~/$(date +%s).png")
 
     -- toggle picom
-    , ((modm,               xK_c     ), spawn "killall picom || picom")
+    , ((modm,               xK_c     ), spawn "killall picom || picom --experimental-backends")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
@@ -289,6 +289,8 @@ myLogHook = return ()
 --
 -- Start nitrogen once on boot, restart picom every time
 myStartupHook = do 
+    spawnOnce "feh --bg-scale /usr/share/backgrounds/background.jpg &"
+    spawnOnce "picom --experimental-backends"
     setWMName "LG3D"
 
 ------------------------------------------------------------------------
