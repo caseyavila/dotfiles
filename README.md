@@ -12,7 +12,8 @@ The files to accompany my linux setup.
   - nitrogen
 - firefox
 - maim
-- picom
+- no compositor
+  - picom
 - rofi
 - tmux
 - vim
