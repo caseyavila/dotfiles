@@ -289,7 +289,7 @@ myLogHook = return ()
 --
 -- Start nitrogen once on boot, restart picom every time
 myStartupHook = do 
-    spawnOnce "feh --bg-scale /usr/share/backgrounds/background.jpg &"
+    spawnOnce "~/.fehbg &"
     setWMName "LG3D"
 
 ------------------------------------------------------------------------
