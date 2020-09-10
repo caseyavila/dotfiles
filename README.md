@@ -12,8 +12,8 @@ The files to accompany my linux setup.
   - nitrogen
 - firefox
 - maim
-- no compositor
-  - picom
+- picom
+  - no compositor
 - rofi
 - tmux
 - vim
@@ -28,17 +28,12 @@ The files to accompany my linux setup.
 
 ### X Server Configuration
 Append the followoing to `~/.xinitrc`:
-```
+```sh
+mkfifo /tmp/.title
+
 xset m 0 0 &
 xset r rate 250 30 &
 exec xmonad
-```
-
-To start an X server upon login, add this to `~/.zprofile` or `~/.bash_profile`:
-```
-if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-    exec startx
-fi
 ```
 
 ### Keyboard Layout
