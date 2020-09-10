@@ -12,6 +12,7 @@ import XMonad
 import Data.Monoid
 
 import System.Exit
+import System.IO
 
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
@@ -278,7 +279,7 @@ myEventHook = mempty
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
-myLogHook = return ()
+myLogHook h p = dynamicLogWithPP $ p { ppOutput = hPutStrLn h }
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -287,9 +288,9 @@ myLogHook = return ()
 -- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
 -- per-workspace layout choices.
 --
--- Start nitrogen once on boot, restart picom every time
-myStartupHook = do 
+myStartupHook = do
     spawnOnce "~/.fehbg &"
+    spawnOnce "mkfifo /tmp/.title &"
     setWMName "LG3D"
 
 ------------------------------------------------------------------------
@@ -297,21 +298,34 @@ myStartupHook = do
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = do 
-    xmproc <- spawnPipeWithNoEncoding "xmobar -x 0"
-    xmonad $ docks $ ewmhFullscreen $ ewmh defaults {
-        logHook = dynamicLogWithPP $ xmobarPP {
-            ppOutput = hPutStrLn xmproc,
-            ppCurrent = xmobarColor "#ff69b4" "",
-            ppLayout = myLayoutPrinter,
-            ppTitle = xmobarColor "pink" "" . shorten 60,
-            ppSep = " | "
+main = do
+    workspaceHandle <- spawnPipeWithNoEncoding "xmobar -x 0"
+
+    titleHandle <- openFile "/tmp/.title" ReadWriteMode
+    hSetBuffering titleHandle NoBuffering
+
+    xmonad $ docks $ ewmhFullscreen $ ewmh defaults
+        {
+        logHook = do
+            myLogHook workspaceHandle workspacePP
+            myLogHook titleHandle titlePP
         }
-    }
 
 myLayoutPrinter "Spacing Tall"        = "<icon=layout_tall.xbm/>"
 myLayoutPrinter "Spacing Mirror Tall" = "<icon=layout_mirror.xbm/>"
 myLayoutPrinter "Spacing Full"        = "<icon=layout_full.xbm/>"
+
+-- Define two pretty-printers, one for the workspaces, and one for the title
+--
+workspacePP = xmobarPP { ppCurrent = xmobarColor "#ff69b4" ""
+                       , ppLayout = myLayoutPrinter
+                       , ppOrder = \(ws:l:t:_) -> [ws,l]
+                       , ppSep = " | "
+                       }
+
+titlePP     = xmobarPP { ppOrder = \(ws:l:t:_) -> [t]
+                       , ppTitle = xmobarColor "pink" "" . shorten 60
+                       }
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
@@ -338,7 +352,7 @@ defaults = def {
         layoutHook         = lessBorders OnlyScreenFloat $ avoidStruts $ spacingRaw False (Border 5 5 5 5) True (Border 5 5 5 5) True $ myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
-        logHook            = myLogHook,
+        --logHook            = myLogHook,
         startupHook        = myStartupHook
     }
 
