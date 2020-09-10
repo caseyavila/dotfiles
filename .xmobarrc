@@ -5,7 +5,6 @@ Config {
    , bgColor =      "black"
    , fgColor =      "#fdfdfd"
    , position =     Top
-   , border =       BottomB
    , borderColor =  "#ff69b4"
    , iconRoot =     "./.xmonad/icons"
    , iconOffset =   6
