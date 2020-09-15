@@ -3,7 +3,7 @@ set ruler
 syntax on
 set t_Co=256
 colorscheme darcula
-set tabstop=4 shiftwidth=4 expandtab softtabstop=4 autoindent
+set tabstop=4 shiftwidth=4 expandtab softtabstop=4 autoindent smartindent
 set hlsearch
 set showmatch
 set ignorecase
