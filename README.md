@@ -26,16 +26,6 @@ The files to accompany my linux setup.
 
 ## Other Setup Info (mainly personal notes)
 
-### X Server Configuration
-Append the followoing to `~/.xinitrc`:
-```sh
-mkfifo /tmp/.title
-
-xset m 0 0 &
-xset r rate 250 30 &
-exec xmonad
-```
-
 ### Keyboard Layout
 Setup `/etc/X11/xorg.conf.d/10-keyboard.conf` as such:
 ```
