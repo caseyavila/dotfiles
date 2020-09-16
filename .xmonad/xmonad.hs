@@ -290,6 +290,7 @@ myLogHook h p = dynamicLogWithPP $ p { ppOutput = hPutStrLn h }
 --
 myStartupHook = do
     spawnOnce "~/.fehbg &"
+    spawnOnce "picom --experimental-backends &"
     spawnOnce "mkfifo /tmp/.title &"
     setWMName "LG3D"
 
