@@ -26,7 +26,7 @@ case "$choice" in
 		choice="$HOME/.config/rofi/edit-configs.sh"
 	;;
 	picom)
-		choice="$HOME/.config/picom.conf"
+		choice="$HOME/.config/picom/picom.conf"
 	;;
 	rofi)
 		choice="$HOME/.config/rofi/config.rasi"
