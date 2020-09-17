@@ -312,10 +312,6 @@ main = do
             myLogHook titleHandle titlePP
         }
 
-myLayoutPrinter "Spacing Tall"        = "<icon=layout_tall.xbm/>"
-myLayoutPrinter "Spacing Mirror Tall" = "<icon=layout_mirror.xbm/>"
-myLayoutPrinter "Spacing Full"        = "<icon=layout_full.xbm/>"
-
 -- Define two pretty-printers, one for the workspaces, and one for the title
 --
 workspacePP = xmobarPP { ppCurrent = xmobarColor "#ff69b4" ""
@@ -327,6 +323,11 @@ workspacePP = xmobarPP { ppCurrent = xmobarColor "#ff69b4" ""
 titlePP     = xmobarPP { ppOrder = \(ws:l:t:_) -> [t]
                        , ppTitle = xmobarColor "pink" "" . shorten 60
                        }
+
+myLayoutPrinter c = case c of
+    "Spacing Tall"        -> "<icon=layout_tall.xbm/>"
+    "Spacing Mirror Tall" -> "<icon=layout_mirror.xbm/>"
+    "Spacing Full"        -> "<icon=layout_full.xbm/>"
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
