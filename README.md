@@ -7,7 +7,6 @@ The files to accompany my linux setup.
 - alacritty
   - st
 - bash
-  - zsh
 - feh
   - nitrogen
 - firefox
