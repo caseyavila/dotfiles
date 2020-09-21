@@ -60,7 +60,7 @@ Config {
                              , "--High"     , "70"        -- units: °C
                              , "--normal"   , "pink"
                              , "--high"     , "#ff69b4"
-                             ] 50
+                             ] 10
                           
         -- memory usage monitor
         , Run Memory         [ "--template" , "<fc=#ff69b4><icon=mem.xbm/></fc> <usedratio>%"
