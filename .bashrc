@@ -14,7 +14,6 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
-complete -cf sudo
-
 # Put your fun stuff here.
+complete -cf sudo
 PS1="\[\033]0;\u@\h:\w\007\]\[\033[01;35m\]\u@\h\[\033[00;36m\] \w \[\033[01;36m\]\$\[\033[00m\] "
