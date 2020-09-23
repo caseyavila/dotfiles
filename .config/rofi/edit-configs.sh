@@ -3,6 +3,7 @@
 options="alacritty
 bash
 edit-configs
+edit-portage
 picom
 rofi
 st
@@ -24,6 +25,9 @@ case "$choice" in
 	;;
 	edit-configs)
 		choice="$HOME/.config/rofi/edit-configs.sh"
+	;;
+	edit-portage)
+		choice="$HOME/.config/rofi/edit-portage.sh"
 	;;
 	picom)
 		choice="$HOME/.config/picom/picom.conf"
