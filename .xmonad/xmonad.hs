@@ -97,10 +97,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_c     ), spawn "killall picom || picom --experimental-backends")
 
     -- launch gmrun
-    , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
+    --, ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
 
     -- launch edit-configs
     , ((modm,               xK_d     ), spawn "~/.config/rofi/edit-configs.sh")
+
+    -- launch edit-portage
+    , ((modm,               xK_g     ), spawn "~/.config/rofi/edit-portage.sh")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
