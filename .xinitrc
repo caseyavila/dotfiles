@@ -1,4 +1,4 @@
-mkfifo /tmp/.title
+mkfifo /tmp/title.fifo
 
 xset m 0 0 &
 xset r rate 250 30 &

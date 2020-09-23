@@ -103,7 +103,7 @@ Config {
 
         , Run StdinReader
 
-        , Run PipeReader "/tmp/.title" "title"
+        , Run PipeReader "/tmp/title.fifo" "title"
 
        ]
    }

@@ -294,7 +294,6 @@ myLogHook h p = dynamicLogWithPP $ p { ppOutput = hPutStrLn h }
 myStartupHook = do
     spawnOnce "~/.fehbg &"
     spawnOnce "picom --experimental-backends &"
-    spawnOnce "mkfifo /tmp/.title &"
     setWMName "LG3D"
 
 ------------------------------------------------------------------------
@@ -305,7 +304,7 @@ myStartupHook = do
 main = do
     workspaceHandle <- spawnPipeWithNoEncoding "xmobar -x 0"
 
-    titleHandle <- openFile "/tmp/.title" ReadWriteMode
+    titleHandle <- openFile "/tmp/title.fifo" ReadWriteMode
     hSetBuffering titleHandle NoBuffering
 
     xmonad $ docks $ ewmhFullscreen $ ewmh defaults
