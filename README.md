@@ -50,13 +50,15 @@ ctrl_interface=DIR=/run/wpa_supplicant GROUP=wheel
 update_config=1
 
 network={
-	ssid="Free PHX Boingo WiFi"
+	ssid="network name"
+	psk="password"
+	#for networks with no passwords
 	key_mgmt=NONE
 }
 ```
 
 - Restart network interface
 ```
-# sudo /etc/init.d/net.wlp3s0 restart
+# /etc/init.d/net.wlp3s0 restart
 ```
 
