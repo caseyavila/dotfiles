@@ -37,9 +37,28 @@ EndSection
 ```
 
 ### Wireless Network
-Run the following commands after using `wpa_passphrase`:
-```shell
-$ wpa_supplicant -B -i wlp3s0 -c /etc/wpa_supplicant/wpa_supplicant.conf
-$ dhcpcd wlp3s0
+- Scan for networks
+```
+# wpa_cli
+> scan
+> scan_results
+```
+
+- Edit `/etc/wpa_supplicant/wpa_supplicant.conf`
+```
+ctrl_interface=DIR=/run/wpa_supplicant GROUP=wheel
+update_config=1
+
+network={
+	ssid="network name"
+	psk="password"
+	#for networks with no passwords
+	key_mgmt=NONE
+}
+```
+
+- Restart network interface
+```
+# /etc/init.d/net.wlp3s0 restart
 ```
 
