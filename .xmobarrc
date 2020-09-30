@@ -47,7 +47,7 @@ Config {
                              ] 10
 
         -- cpu activity monitor
-        , Run MultiCpu       [ "--template" , "<fc=#ff69b4><icon=cpu.xbm/></fc> <total0>%"
+        , Run MultiCpu       [ "--template" , "<fc=#ff69b4><icon=cpu.xbm/></fc> <total>%"
                              , "--Low"      , "50"         -- units: %
                              , "--High"     , "85"         -- units: %
                              , "--normal"   , "pink"
