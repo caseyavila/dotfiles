@@ -1,7 +1,7 @@
 # dotfiles
 The files to accompany my linux setup.
 
-![screenshot](https://camo.githubusercontent.com/8cb822f22c581a6ceb84135815e113b5a9530850/68747470733a2f2f696d6775722e636f6d2f5541634e4f6d772e706e67)
+![screenshot](https://camo.githubusercontent.com/5c0bebb35d7a47f5a07d67baba777a64d3c1693f/68747470733a2f2f692e696d6775722e636f6d2f54584c3946624e2e706e67)
 
 ## Programs
 - alacritty
