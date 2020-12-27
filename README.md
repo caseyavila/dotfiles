@@ -52,7 +52,7 @@ update_config=1
 network={
 	ssid="network name"
 	psk="password"
-	#for networks with no passwords
+	# v for networks with no passwords v
 	key_mgmt=NONE
 }
 ```
