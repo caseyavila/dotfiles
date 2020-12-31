@@ -57,7 +57,7 @@ network={
 }
 ```
 
-- Restart network interface
+- Restart network interface (OpenRC)
 ```
 # /etc/init.d/net.wlp3s0 restart
 ```
