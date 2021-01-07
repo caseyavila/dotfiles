@@ -65,12 +65,12 @@ update_config=1
 network={
 	ssid="network name"
 	psk="password"
-	#for networks with no passwords
+	# v for networks with no passwords v
 	key_mgmt=NONE
 }
 ```
 
-- Restart network interface
+- Restart network interface (OpenRC)
 ```
 # /etc/init.d/net.wlp3s0 restart
 ```
