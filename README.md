@@ -25,11 +25,24 @@ The files to accompany my linux setup.
 
 ## Other Setup Info (mainly personal notes)
 
+### Mouse Acceleration
+Setup `/etc/X11/xorg.conf.d/11-mouse.conf` as such:
+```
+Section "InputClass"
+        Identifier "mouse"
+        Driver "libinput"
+        MatchIsPointer "yes"
+        Option "AccelProfile" "flat"
+EndSection
+
+```
+- Keep in mind this is because libinput is the device driver.
+
 ### Keyboard Layout
 Setup `/etc/X11/xorg.conf.d/10-keyboard.conf` as such:
 ```
 Section "InputClass"
-        Identifier  "system-keyboard"
+        Identifier  "keyboard"
         Option "XkbModel" "pc105"
         Option "XkbLayout" "us"
         Option "XkbVariant" "altgr-intl"
