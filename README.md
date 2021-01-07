@@ -31,7 +31,6 @@ Setup `/etc/X11/xorg.conf.d/11-mouse.conf` as such:
 Section "InputClass"
         Identifier "mouse"
         Driver "libinput"
-        MatchIsPointer "yes"
         Option "AccelProfile" "flat"
 EndSection
 
@@ -42,7 +41,7 @@ EndSection
 Setup `/etc/X11/xorg.conf.d/10-keyboard.conf` as such:
 ```
 Section "InputClass"
-        Identifier  "keyboard"
+        Identifier "keyboard"
         Option "XkbModel" "pc105"
         Option "XkbLayout" "us"
         Option "XkbVariant" "altgr-intl"
