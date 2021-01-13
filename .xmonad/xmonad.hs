@@ -302,7 +302,7 @@ myStartupHook = do
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do
-    workspaceHandle <- spawnPipeWithNoEncoding "xmobar -x 0"
+    workspaceHandle <- spawnPipe "xmobar -x 0"
 
     titleHandle <- openFile "/tmp/title.fifo" ReadWriteMode
     hSetBuffering titleHandle NoBuffering
