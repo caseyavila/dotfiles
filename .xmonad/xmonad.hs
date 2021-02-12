@@ -353,7 +353,7 @@ defaults = def {
         mouseBindings      = myMouseBindings,
 
       -- hooks, layouts
-        layoutHook         = lessBorders OnlyScreenFloat $ avoidStruts $ spacingRaw False (Border 5 5 5 5) True (Border 5 5 5 5) True $ myLayout,
+        layoutHook         = lessBorders OnlyScreenFloat $ avoidStruts $ spacingRaw False (Border 3 3 3 3) True (Border 3 3 3 3) True $ myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
         --logHook            = myLogHook,
@@ -410,3 +410,4 @@ help = unlines ["The default modifier key is 'alt'. Default keybindings:",
     "mod-button1  Set the window to floating mode and move by dragging",
     "mod-button2  Raise the window to the top of the stack",
     "mod-button3  Set the window to floating mode and resize by dragging"]
+
