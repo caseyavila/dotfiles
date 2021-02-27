@@ -319,7 +319,7 @@ main = do
 workspacePP = xmobarPP { ppCurrent = xmobarColor "#ff69b4" ""
                        , ppLayout = myLayoutPrinter
                        , ppOrder = \(ws:l:t:_) -> [ws,l]
-                       , ppSep = " > "
+                       , ppSep = " <fc=#545454>|</fc> "
                        }
 
 titlePP     = xmobarPP { ppOrder = \(ws:l:t:_) -> [t]

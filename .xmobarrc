@@ -12,7 +12,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = " <fc=#948cd2><icon=gentoo.xbm/></fc> > %StdinReader% } %title% { %dynnetwork% < %memory% < %multicpu% < %multicoretemp% < %alsa:default:Master% < %date% < %time% "
+   , template = " <fc=#948cd2><icon=gentoo.xbm/></fc> <fc=#545454>|</fc> %StdinReader% } %title% { %dynnetwork% <fc=#545454>|</fc> %memory% <fc=#545454>|</fc> %multicpu% <fc=#545454>|</fc> %multicoretemp% <fc=#545454>|</fc> %alsa:default:Master% <fc=#545454>|</fc> %date% <fc=#545454>|</fc> %time% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -39,7 +39,7 @@ Config {
    , commands = 
 
         -- network activity monitor (dynamic interface resolution)
-        [ Run DynNetwork     [ "--template" , "<tx>kB/s <fc=#ff69b4><icon=net_up_01.xbm/><icon=net_down_01.xbm/></fc> <rx>kB/s"
+        [ Run DynNetwork     [ "--template" , "<tx>kb <fc=#ff69b4><icon=net_up_01.xbm/><icon=net_down_01.xbm/></fc> <rx>kb"
                              , "--Low"      , "1000"       -- units: kB/s
                              , "--High"     , "5000"       -- units: kB/s
                              , "--normal"   , "pink"
