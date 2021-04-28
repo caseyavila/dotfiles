@@ -25,18 +25,6 @@ The files to accompany my linux setup.
 
 ## Other Setup Info (mainly personal notes)
 
-### Mouse Acceleration
-Setup `/etc/X11/xorg.conf.d/11-mouse.conf` as such:
-```
-Section "InputClass"
-        Identifier "mouse"
-        Driver "libinput"
-        Option "AccelProfile" "flat"
-EndSection
-
-```
-- Keep in mind this is because libinput is the device driver.
-
 ### Keyboard Layout
 Setup `/etc/X11/xorg.conf.d/10-keyboard.conf` as such:
 ```
@@ -45,6 +33,28 @@ Section "InputClass"
         Option "XkbModel" "pc105"
         Option "XkbLayout" "us"
         Option "XkbVariant" "altgr-intl"
+EndSection
+```
+
+### Mouse Acceleration
+Setup `/etc/X11/xorg.conf.d/11-mouse.conf` as such:
+```
+Section "InputClass"
+        Identifier "mouse"
+        Driver "libinput"
+        Option "AccelProfile" "flat"
+EndSection
+```
+- Keep in mind this is because libinput is the device driver.
+
+### Laptop Touchpad
+Setup `/etc/X11/xorg.conf.d/12.touchpad.conf` as such:
+```
+Section "InputClass"
+	Identifier "touchpad"
+	Driver "libinput"
+	Option "Tapping" "on"
+	Option "ScrollMethod" "edge"
 EndSection
 ```
 
@@ -74,3 +84,32 @@ network={
 # /etc/init.d/net.wlp3s0 restart
 ```
 
+### Color Emojis
+- Edit `~/.config/fontconfig/fonts.conf` as such:
+```xml
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+ <alias>
+   <family>sans-serif</family>
+   <prefer>
+     <family>Noto Color Emoji</family>
+   </prefer>
+ </alias>
+
+ <alias>
+   <family>serif</family>
+   <prefer>
+     <family>Noto Color Emoji</family>
+   </prefer>
+ </alias>
+
+ <alias>
+   <family>monospace</family>
+   <prefer>
+    <family>Noto Color Emoji</family>
+   </prefer>
+ </alias>
+</fontconfig>
+```
+```
