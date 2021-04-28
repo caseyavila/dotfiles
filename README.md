@@ -51,11 +51,53 @@ EndSection
 Setup `/etc/X11/xorg.conf.d/12.touchpad.conf` as such:
 ```
 Section "InputClass"
-	Identifier "touchpad"
-	Driver "libinput"
-	Option "Tapping" "on"
-	Option "ScrollMethod" "edge"
+        Identifier "touchpad"
+        Driver "libinput"
+        Option "Tapping" "on"
+        Option "ScrollMethod" "edge"
 EndSection
+```
+
+### Laptop Backlight
+- Add this rule to `/etc/acpi/default.sh`
+```sh
+    video)
+        case "$action" in
+            brightnessup)
+                /etc/acpi/actions/backlight.sh up
+                ;;
+            brightnessdown)
+                /etc/acpi/actions/backlight.sh down
+                ;;
+            *) log_unhandled
+                $*
+                ;;
+        esac
+        ;;
+```
+
+- Edit `/etc/acpi/actions/backlight.sh`
+```sh
+#!/bin/sh
+set -e
+
+backlight_sys_dir="/sys/class/backlight/intel_backlight"
+read -r max_brightness < "${backlight_sys_dir}/max_brightness"
+read -r curr_brightness < "${backlight_sys_dir}/brightness"
+
+case "$1" in
+      up) increment="+ 50" ;;
+    down) increment="- 50" ;;
+       *) exit 1 ;;
+esac
+
+new_brightness=$(($curr_brightness $increment))
+
+if (($new_brightness < 1)) || (($new_brightness > $max_brightness)); then
+    exit 1
+else
+    echo "$new_brightness" > ${backlight_sys_dir}/brightness
+fi
 ```
 
 ### Wireless Network
