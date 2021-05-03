@@ -55,6 +55,7 @@ Section "InputClass"
         Driver "libinput"
         Option "Tapping" "on"
         Option "ScrollMethod" "edge"
+        Option "ClickMethod" "clickfinger"
 EndSection
 ```
 
