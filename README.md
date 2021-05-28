@@ -52,10 +52,9 @@ Setup `/etc/X11/xorg.conf.d/12.touchpad.conf` as such:
 ```
 Section "InputClass"
         Identifier "touchpad"
-        Driver "libinput"
-        Option "Tapping" "on"
-        Option "ScrollMethod" "edge"
-        Option "ClickMethod" "clickfinger"
+        Option "TapButton1" "1"
+        Option "TapButton2" "3"
+        Option "TapButton3" "2"
 EndSection
 ```
 
