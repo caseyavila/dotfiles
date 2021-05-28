@@ -307,9 +307,13 @@ main = do
     titleHandle <- openFile "/tmp/title.fifo" ReadWriteMode
     hSetBuffering titleHandle NoBuffering
 
+    -- For window activation (switching workspaces, windows, etc.)
+    let acMh :: ManageHook
+        acMh = reader W.focusWindow >>= doF
+
     xmonad $ docks $ ewmhFullscreen $ ewmh defaults
         {
-        logHook = do
+        logHook = activateLogHook acMh <+> do
             myLogHook workspaceHandle workspacePP
             myLogHook titleHandle titlePP
         }
