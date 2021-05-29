@@ -1,7 +1,7 @@
 configuration {
     modi: "window,drun,ssh,combi";
     combi-modi: "window,drun,ssh";
-    font: "lucy tewi 8";
+    font: "IBM Plex Mono 9";
     bw: 1;
     color-window: "#99000000, #88ddfc, #ffffff";
     color-normal: "#00ffffff, #ffffff, #00ffffff, #00ffffff, #ff69b4";
