@@ -8,8 +8,6 @@ window:
 
   dynamic_padding: true
 
-  background_opacity: 0.8
-
 scrolling:
   history: 10000
 
@@ -17,12 +15,12 @@ scrolling:
 
 font:
   normal:
-    family: lucy tewi
+    #family: lucy tewi
     #family: Source Code Pro
-    #family: IBM plex mono
+    family: IBM plex mono
 
-  size: 8
-  #size: 10
+  #size: 8
+  size: 10
 
 draw_bold_text_with_bright_colors: true
 
@@ -55,8 +53,6 @@ colors:
 
   cursor:
     cursor: '0xcfcfcf'
-
-  opaque_background_colors: false 
 
 selection:
   save_to_clipboard: false
