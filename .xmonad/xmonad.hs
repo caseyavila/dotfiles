@@ -49,7 +49,7 @@ myClickJustFocuses = False
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 1
+myBorderWidth   = 2
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
 -- ("right alt"), which does not conflict with emacs keybindings. The
@@ -82,7 +82,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch rofi
-    , ((modm,               xK_p     ), spawn "rofi -modi run -show run")
+    , ((modm,               xK_p     ), spawn "rofi -dpi 157 -modi run -show run")
 
     -- launch firefox
     , ((modm,               xK_b     ), spawn "firefox")
@@ -331,9 +331,9 @@ titlePP     = xmobarPP { ppOrder = \(ws:l:t:_) -> [t]
                        }
 
 myLayoutPrinter c = case c of
-    "Spacing Tall"        -> "<icon=layout_tall.xbm/>"
-    "Spacing Mirror Tall" -> "<icon=layout_mirror.xbm/>"
-    "Spacing Full"        -> "<icon=layout_full.xbm/>"
+    "Spacing Tall"        -> "<icon=layout_tall-4k.xbm/>"
+    "Spacing Mirror Tall" -> "<icon=layout_mirror-4k.xbm/>"
+    "Spacing Full"        -> "<icon=layout_full-4k.xbm/>"
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
@@ -357,7 +357,7 @@ defaults = def {
         mouseBindings      = myMouseBindings,
 
       -- hooks, layouts
-        layoutHook         = lessBorders OnlyScreenFloat $ avoidStruts $ spacingRaw False (Border 3 3 3 3) True (Border 3 3 3 3) True $ myLayout,
+        layoutHook         = lessBorders OnlyScreenFloat $ avoidStruts $ spacingRaw False (Border 7 7 7 7) True (Border 7 7 7 7) True $ myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
         --logHook            = myLogHook,
