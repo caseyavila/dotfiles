@@ -43,7 +43,7 @@
 ./scripts/config --enable CRYPTO_USER_API_HASH
 ./scripts/config --enable CRYPTO_USER_API_SKCIPHER
 ./scripts/config --enable CRYPTO_SHA1
-./scripts/config --enable CRYPTO_KEY_DH_OPERATIONS
+./scripts/config --enable KEY_DH_OPERATIONS
 
 # USB Device Battery Info
 ./scripts/config --enable HID_BATTERY_STRENGTH
