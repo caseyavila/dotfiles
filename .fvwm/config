@@ -1,0 +1,38 @@
+Style * BorderWidth 4
+Style * HandleWidth 4
+Style * MwmBorder
+Style * MwmButtons
+Style * MouseFocusClickRaises
+Style * ColorSet 1 
+Style * HilightColorset 2
+Style * ResizeOpaque
+Style * SloppyFocus
+
+OpaqueMoveSize unlimited
+
+MenuStyle * MenuColorset 3
+
+Mouse 1 2 A Close
+Mouse 1 4 A Maximize
+
+ButtonStyle 2 Vector 17 20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 80x30@0 60x50@0 80x70@1 80x80@0 70x80@0 50x60@0 30x80@0 20x80@0 20x70@0 40x50@1 20x30@0 20x20@1
+ButtonStyle 2 - !MwmDecorMax
+ButtonStyle 4 Default 2
+ButtonStyle 4 - MwmDecorMax
+
+CleanupColorsets
+DefaultColorset 0
+ColorSet 0 fg \#000000, bg \#aeb2c3, hi \#dcdee5, sh \#5d6069
+ColorSet 1 fg \#000000, bg \#aeb2c3, hi \#dcdee5, sh \#5d6069
+ColorSet 2 fg \#ffffff, bg \#b24d7a, hi \#dcadc2, sh \#57253b
+ColorSet 3 fg \#000000, bg \#aeb2c3, hi \#dcdee5, sh \#5d6069
+
+DestroyFunc StartFunction
+AddToFunc   StartFunction
++ I Test (Init) Exec exec `picom --experimental-backends`
++ I Test (Init) Exec exec `./.fehbg`
+
+Key Return A 4 Exec exec `xterm`
+Key B A 4 Exec exec `firefox`
+Key P A 4 Exec exec `rofi -show run`
+Key C A 4 Exec exec `pkill picom || picom --experimental-backends`
