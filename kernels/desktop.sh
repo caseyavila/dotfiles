@@ -45,6 +45,11 @@
 ./scripts/config --enable CRYPTO_SHA1
 ./scripts/config --enable KEY_DH_OPERATIONS
 
+# Intel WiFi
+./scripts/config --enable IWLWIFI
+./scripts/config --enable IWLDVM
+./scripts/config --enable IWLMVM
+
 # USB Device Battery Info
 ./scripts/config --enable HID_BATTERY_STRENGTH
 
