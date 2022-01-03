@@ -53,9 +53,6 @@
 # USB Device Battery Info
 ./scripts/config --enable HID_BATTERY_STRENGTH
 
-# Disable Intel Graphics
-./scripts/config --disable DRM_I915
-
 # Audio
 ./scripts/config --enable SND_HDA_CODEC_REALTEK
 ./scripts/config --enable SND_INTEL8X0
