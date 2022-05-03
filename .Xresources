@@ -1,0 +1,12 @@
+xterm*faceName: IBM plex mono
+xterm*faceSize: 11 
+
+xterm*background: #0c0c0c
+xterm*foreground: white 
+xterm*internalBorder: 15
+
+xterm*alternateScroll: true
+
+xterm*vt100.translations: #override \
+Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
+Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
