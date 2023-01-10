@@ -1,5 +1,8 @@
-mkfifo /tmp/title.fifo
+xrdb -load ~/.Xresources &
 
 xset r rate 250 30 &
-exec xmonad
+
+gentoo-pipewire-launcher &
+
+exec spectrwm
 
