@@ -20,7 +20,7 @@ font:
     family: IBM plex mono
 
   #size: 8
-  size: 10
+  size: 9.5
 
 draw_bold_text_with_bright_colors: true
 
@@ -78,4 +78,4 @@ key_bindings:
 
   - { key: Minus,    mods: Control,       action: DecreaseFontSize }
   - { key: Return,   mods: Alt,           action: ToggleFullscreen }
-  - { key: LBracket, mods: Control,       action: SpawnNewInstance }
+  - { key: N,        mods: Control|Shift, action: SpawnNewInstance }
