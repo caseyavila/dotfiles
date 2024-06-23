@@ -1,0 +1,94 @@
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "0x7f7f7f"
+blue = "0x5287ad"
+cyan = "0x88ddfc"
+green = "0x469e76"
+magenta = "0x9c6dcc"
+red = "0xb86974"
+white = "0xffffff"
+yellow = "0xc7a775"
+
+[colors.cursor]
+cursor = "0xcfcfcf"
+
+[colors.normal]
+black = "0x0c0c0c"
+blue = "0x487799"
+cyan = "0x44abc4"
+green = "0x3b8563"
+magenta = "0x7863b9"
+red = "0xa65f69"
+white = "0xe5e5e5"
+yellow = "0xb39669"
+
+[colors.primary]
+background = "0x0c0c0c"
+foreground = "0xcfcfcf"
+
+[cursor]
+style = "Block"
+unfocused_hollow = true
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 10
+
+[font.normal]
+family = "IBM plex mono"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "Return"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Control|Shift"
+
+[mouse]
+hide_when_typing = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = false
+
+[window]
+dynamic_padding = true
+
+[window.padding]
+x = 10
+y = 10
