@@ -1,0 +1,17 @@
+Config { overrideRedirect = False
+       , font     = "IBM Plex Sans 11"
+       , position = TopH 25 
+       , commands = [ Run Alsa "default" "Master"
+                        [ "--template", "<volumestatus>"
+                        , "--suffix"  , "True"
+                        , "--"
+                        , "--on", ""
+                        ]
+                    , Run BatteryP ["BAT0", "BAT1"] [] 20
+                    , Run Date "%a %Y-%m-%d %H:%M:%S" "date" 10
+                    , Run XMonadLog
+                    ]
+       , sepChar  = "%"
+       , alignSep = "}{"
+       , template = " %XMonadLog% }{ %alsa:default:Master% | %battery% | %date% "
+       }
