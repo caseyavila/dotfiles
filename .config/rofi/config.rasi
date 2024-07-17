@@ -1,8 +1,49 @@
 configuration {
-    modi: "window,drun,ssh,combi";
-    combi-modi: "window,drun,ssh,run";
-    font: "IBM Plex Mono 9";
-    bw: 1;
-    color-window: "#99000000, #88ddfc, #ffffff";
-    color-normal: "#00ffffff, #ffffff, #00ffffff, #00ffffff, #ff69b4";
+    font: "IBM Plex Mono 10";
+    dpi: 157;
 }
+
+window {
+    background-color: rgb(12, 12, 12);
+    border: 2;
+    border-color: rgb(255, 0, 0);
+    text-color: rgb(255, 255, 255);
+}
+
+entry {
+    text-color: rgb(255, 255, 255);
+}
+
+inputbar {
+    text-color: rgb(205, 205, 205);
+}
+
+prompt {
+    text-color: rgb(205, 205, 205);
+}
+
+element-text {
+    text-color: rgb(205, 205, 205);
+}
+
+element normal.normal {
+    background-color: inherit;
+}
+
+element alternate.normal {
+    background-color: inherit;
+}
+
+element selected.normal {
+    background-color: rgb(50, 50, 50);
+}
+
+scrollbar {
+    handle-color: rgb(255, 255, 255);
+}
+
+listview {
+    border-color: rgb(30, 30, 30);
+    border: 2px solid 0px 0px;
+}
+
