@@ -8,7 +8,7 @@ Config { overrideRedirect = False
                         , "--on", ""
                         ]
                     , Run BatteryP ["BAT0", "BAT1"] [] 20
-                    , Run Date "%a %Y-%m-%d %H:%M:%S" "date" 10
+                    , Run Date "%A, %Y-%m-%d | %H:%M:%S" "date" 10
                     , Run XMonadLog
                     ]
        , sepChar  = "%"
