@@ -10,7 +10,6 @@ set ignorecase
 set backspace=indent,eol,start
 set nowrap
 set shortmess=O
-set scrolloff=10
 set wildmenu
 set incsearch
 set sidescroll=1
@@ -21,6 +20,3 @@ set cursorline
 set colorcolumn=80
 set timeoutlen=1000 ttimeoutlen=0
 set mouse=a
-
-"map <F10> :silent !pandoc % --pdf-engine=pdfroff -o %:r.pdf<CR>:redraw!<CR>
-"map <F11> :silent !zathura %:r.pdf &<CR>
