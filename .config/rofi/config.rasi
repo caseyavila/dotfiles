@@ -1,29 +1,23 @@
 configuration {
     font: "IBM Plex Mono 10";
     dpi: 157;
+    kb-delete-entry: "Tab";
+    kb-element-next: "";
+    scroll-method: 1;
 }
 
 window {
     background-color: rgb(12, 12, 12);
     border: 2;
     border-color: rgb(255, 0, 0);
+}
+
+prompt, inputbar, entry, element-text selected.normal, textbox {
     text-color: rgb(255, 255, 255);
-}
-
-entry {
-    text-color: rgb(255, 255, 255);
-}
-
-inputbar {
-    text-color: rgb(205, 205, 205);
-}
-
-prompt {
-    text-color: rgb(205, 205, 205);
 }
 
 element-text {
-    text-color: rgb(205, 205, 205);
+    text-color: Gray;
 }
 
 element normal.normal {
@@ -35,7 +29,8 @@ element alternate.normal {
 }
 
 element selected.normal {
-    background-color: rgb(50, 50, 50);
+    text-color: rgb(255, 255, 255);
+    background-color: rgb(30, 30, 30);
 }
 
 scrollbar {
