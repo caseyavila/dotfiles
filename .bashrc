@@ -17,4 +17,17 @@ fi
 # Put your fun stuff here.
 PS1="\[\033]0;\u@\h:\w\007\]\[\033[01;34m\]\u@\h\[\033[00;36m\] \w \[\033[01;36m\]\$\[\033[00m\] "
 
-export HISTSIZE=100000
+export HISTFILESIZE=
+export HISTSIZE=
+export HISTTIMEFORMAT="[%F %T] "
+export HISTFILE=~/.bash_eternal_history
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+
+spn () {
+    if command -v "$@" >/dev/null 2>&1; then
+        nohup "$@" > /dev/null 2>&1 & disown
+    else
+        echo "$*: could not be found"
+    fi
+}
