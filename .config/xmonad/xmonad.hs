@@ -34,7 +34,7 @@ main = xmonad $ ewmhFullscreen $ ewmh $ xmobarProp $ def
     ("M-f", spawn "firefox"),
     ("M-p", spawn "rofi -show run"),
     ("M-c", spawn $ "killall " ++ compositor ++ " || " ++ compositor),
-    ("M-t", withFocused (\w -> windows (\s ->
+    ("M-n", withFocused (\w -> windows (\s ->
               if M.member w (W.floating s)
                 then W.sink w s
                 else W.float w (W.RationalRect (1/9) (1/7) (7/9) (5/7)) s))),
@@ -46,4 +46,7 @@ main = xmonad $ ewmhFullscreen $ ewmh $ xmobarProp $ def
     ("<XF86MonBrightnessDown>", spawn "brightnessctl set 5%-"),
     ("M-s", spawn "maim --hidecursor -s ~/image-$(ls image-*.png | wc -l).png"),
     ("M-S-s", spawn "maim --hidecursor -s | xclip -selection clipboard -t image/png")
+  ]
+  `removeKeysP` [
+    "M-t"
   ]
