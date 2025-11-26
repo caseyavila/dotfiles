@@ -34,7 +34,7 @@ main = xmonad $ ewmhFullscreen $ ewmh $ xmobarProp $ def
     ("M-f", spawn "firefox"),
     ("M-p", spawn "rofi -show run"),
     ("M-c", spawn $ "killall " ++ compositor ++ " || " ++ compositor),
-    ("M-n", withFocused (\w -> windows (\s ->
+    ("M-a", withFocused (\w -> windows (\s ->
               if M.member w (W.floating s)
                 then W.sink w s
                 else W.float w (W.RationalRect (1/9) (1/7) (7/9) (5/7)) s))),
