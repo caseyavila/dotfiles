@@ -14,7 +14,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   networking.hostName = "laptop"; # Define your hostname.
+  networking.hostId = "a0daf0ef";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -42,60 +45,57 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
+  services.libinput.touchpad.tappingDragLock = false;
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable bluetooth
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.brlaser ];
+  };
 
   # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver = {
+    enable = true;
+
+    displayManager.lightdm.background = "#000000";
+
+    windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+    };
+
+    autoRepeatDelay = 200;
+    autoRepeatInterval = 25;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.casey = {
     isNormalUser = true;
-    description = "Casey";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  virtualisation.docker.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim_configurable
+    vim-full
     wget
     curl
     file
@@ -106,22 +106,82 @@
     gcc
     firefox
     keepassxc
-    nodejs
     qemu
     usbutils
     killall
     unzip
     nasm
     openconnect
-    fluidsynth
     gdb
     go
     p7zip
     gnumake
-    blender
     qpwgraph
     obs-studio
+    ghc
+    tmux
+    jdk17
+    nmap
+    sage
+    qemu
+    valgrind
+    pulseaudio
+    playerctl
+    maim
+    picom
+    pavucontrol
+    brightnessctl
+    blender
+    xmobar
+    rofi
+    alacritty
+    vlc
+    mpv
+    racket
+    typst
+    xlayoutdisplay
+    alsa-utils
+    maim
+    zathura
+    w_scan2
+    dvb-apps
+    ffmpeg
+    networkmanagerapplet
+    xclip
+    gtkwave
+    sunxi-tools
+    xorg.xhost
+    zellij
+    clang
+    clang-tools
+    libllvm
+    lldb
+    gf
+    sonobus
+    nuspell
+    hunspellDicts.en_US
+    prismlauncher
+    foliate
+    pstree
+    zoom-us
+    wolfram-engine
+    audacity
+    zed-editor
+    verilator
+    claude-code
   ];
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
 
   environment.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
@@ -129,8 +189,9 @@
 
   # Fonts
   fonts.packages = with pkgs; [
-    ibm-plex
     noto-fonts
+    noto-fonts-cjk-sans
+    ibm-plex
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -142,13 +203,29 @@
   # };
 
   # List services that you want to enable:
+  services.usbmuxd.enable = true;
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  #services.openssh.enable = true;
 
-  # Enable mDNS
-  services.avahi.enable = true;
-  services.avahi.nssmdns = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    publish = {
+      enable = true;
+      addresses = true;
+    };
+  };
+
+  services.resolved.enable = true;
+
+  documentation = {
+    enable = true;
+    man.enable = true;
+    dev.enable = true;
+  };
+
+  environment.etc.hosts.enable = false;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
