@@ -24,13 +24,12 @@ main = xmonad $ ewmhFullscreen $ ewmh $ xmobarProp $ def
     normalBorderColor = "#404040",
     clickJustFocuses = False,
     layoutHook = lessBorders OnlyScreenFloat $
-    avoidStruts $
+      avoidStruts $
       spacingRaw False (Border 3 3 3 3) True (Border 3 3 3 3) True $
       layoutHook def,
-    startupHook = do spawnOnce compositor,
-    manageHook = composeAll [ checkDock --> doLower ]
-  }
-  `additionalKeysP` [
+    startupHook = do spawnOnce compositor >> setWMName "LG3D",
+    manageHook = checkDock --> doLower
+  } `additionalKeysP` [
     ("M-f", spawn "firefox"),
     ("M-p", spawn "rofi -show run"),
     ("M-c", spawn $ "killall " ++ compositor ++ " || " ++ compositor),
@@ -38,12 +37,9 @@ main = xmonad $ ewmhFullscreen $ ewmh $ xmobarProp $ def
               if M.member w (W.floating s)
                 then W.sink w s
                 else W.float w (W.RationalRect (1/9) (1/7) (7/9) (5/7)) s))),
-    ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle"),
-    ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +1.5%"),
-    ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -1.5%"),
-    ("<XF86AudioMicMute>", spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle"),
-    ("<XF86MonBrightnessUp>", spawn "brightnessctl set 5%+"),
-    ("<XF86MonBrightnessDown>", spawn "brightnessctl set 5%-"),
+    ("M-=", spawn "pactl set-sink-volume @DEFAULT_SINK@ +1.5%"),
+    ("M--", spawn "pactl set-sink-volume @DEFAULT_SINK@ -1.5%"),
+    ("M-0", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle"),
     ("M-s", spawn "maim --hidecursor -s ~/image-$(ls image-*.png | wc -l).png"),
     ("M-S-s", spawn "maim --hidecursor -s | xclip -selection clipboard -t image/png")
   ]
